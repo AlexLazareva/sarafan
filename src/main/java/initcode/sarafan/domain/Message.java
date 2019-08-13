@@ -1,20 +1,39 @@
 package initcode.sarafan.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
 @ToString(of = {"id", "text"})
 @EqualsAndHashCode(of = {"id"})
+
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
+    @JsonView(Views.Id.class)
     private Long id;
+    @JsonView(Views.IdName.class)
     private String text;
+
+    @Column(updatable = false)
+    @JsonView(Views.FullMessage.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime creationDate;
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
 
     public Long getId() {
         return id;
