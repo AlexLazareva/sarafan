@@ -1,24 +1,27 @@
 package initcode.sarafan.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "auth_user")
 @Data
 
-public class User {
+public class User implements Serializable {
     @Id
     private String id;
     private String name;
-    private String picture;
+    private String userPic;
     private String email;
     private String gender;
     private String locale;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastVisit;
 
     public String getId() {
@@ -38,11 +41,11 @@ public class User {
     }
 
     public String getUserPic() {
-        return picture;
+        return userPic;
     }
 
-    public void setUserPic(String picture) {
-        this.picture = picture;
+    public void setUserPic(String userPic) {
+        this.userPic = userPic;
     }
 
     public String getEmail() {

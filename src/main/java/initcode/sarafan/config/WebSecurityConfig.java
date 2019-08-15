@@ -20,9 +20,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .antMatcher("/**")
                 .authorizeRequests()
-                .mvcMatchers("/").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/", "/login**", "/js/**", "/error**")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and().logout().logoutSuccessUrl("/").permitAll()
                 .and()
                 .csrf().disable();
     }
@@ -38,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 newUser.setEmail((String) map.get("email"));
                 newUser.setGender((String) map.get("gender"));
                 newUser.setLocale((String) map.get("locale"));
-                newUser.setUserPic((String) map.get("picture"));
+                newUser.setUserPic((String) map.get("userPic"));
 
                 return newUser;
             });
