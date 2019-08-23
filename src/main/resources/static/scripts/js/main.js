@@ -1,3 +1,20 @@
+import Vue from 'vue';
+
+new Vue({
+    el: '#app',
+    template: '<div>' +
+        '<div v-if="!profile">Необходимо авторизоваться через <a href="/login">Google</a></div>' +
+        '<div  v-else>' +
+        '<div>{{profile.name}}&nbsp;<a href="/logout">Выйти</a></div>' +
+        '<messages-list :messages="messages"/>' +
+        '</div>' +
+        '</div>',
+    data: {
+        messages: frontendData.messages,
+        profile: frontendData.profile
+    }
+});
+/*
 var messageApi = Vue.resource('/message{/id}');
 
 function getIndex(list, id) {
@@ -106,4 +123,4 @@ var app = new Vue({
         messages: frontendData.messages,
         profile: frontendData.profile
     }
-});
+});*/
