@@ -105,12 +105,5 @@ var app = new Vue({
     data: {
         messages: frontendData.messages,
         profile: frontendData.profile
-    },
-    created: function () {
-        // messageApi.get().then(response => {
-        //     response.json().then(data => {
-        //         data.forEach(message => this.messages.push(message));
-        //     });
-        // });
     }
 });
