@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import VueResorce from 'vue-resource';
 import App from 'pages/App.vue';
+import { connect} from "./util/websocket";
+
+connect();
 
 Vue.use(VueResorce);
 
