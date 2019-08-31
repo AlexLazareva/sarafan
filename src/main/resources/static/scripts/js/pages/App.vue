@@ -12,6 +12,8 @@
 
 <script>
 import MessagesList from 'components/messages/MessagesList.vue'
+import { addHandler } from '../util/websocket'
+import { getIndex } from '../util/collections'
 
 	export default {
 		components: {
@@ -22,6 +24,17 @@ import MessagesList from 'components/messages/MessagesList.vue'
 				messages: frontendData.messages,
 				profile: frontendData.profile
 			}
+		},
+		created() {
+			addHandler(data => {
+				let index = getIndex(this.messages, data.id);
+				
+				if (index > -1) {
+					this.messages.splice(index, 1, data);
+				} else {
+					this.messages.push(data);
+				}
+			})
 		}
 	}
 </script>
