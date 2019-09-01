@@ -38,7 +38,3 @@ import { getIndex } from '../util/collections'
 		}
 	}
 </script>
-
-<style scoped>
-
-</style>

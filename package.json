@@ -1,19 +1,20 @@
 {
   "name": "sarafan",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/AlexLazareva/sarafan.git",
   "author": "Alex Lazareva <alex.lazareva25@yandex.ru>",
-  "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server"
   },
+  "main": "index.js",
   "dependencies": {
+    "@mdi/font": "^3.6.95",
     "@stomp/stompjs": "^5.4.2",
+    "roboto-fontface": "*",
     "sockjs-client": "^1.4.0",
     "vue": "^2.6.10",
     "vue-resource": "^1.5.1",
     "vue-template-compiler": "^2.6.10",
+    "vuetify": "^2.0.11",
     "websocket": "^1.0.29"
   },
   "devDependencies": {
@@ -21,10 +22,17 @@
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "deepmerge": "^4.0.0",
+    "fibers": "^4.0.1",
+    "sass": "^1.22.10",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "^0.6.3",
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
-  }
+  },
+  "license": "MIT",
+  "repository": "https://github.com/AlexLazareva/sarafan.git"
 }
