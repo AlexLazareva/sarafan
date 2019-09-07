@@ -1,7 +1,5 @@
 import Vue from 'vue';
-import Vuetify, {
-	VContent
-} from 'vuetify/lib';
+import Vuetify from 'vuetify/lib';
 
 <template>
 	<v-app id="app">
@@ -10,17 +8,19 @@ import Vuetify, {
 		dark
 		app>
 			<v-toolbar-title>Sarafan</v-toolbar-title>
-			<v-btn icon href="/logout">
+			<v-spacer></v-spacer>
+			<div v-if="profile">{{profile.name}}</div>
+			<v-btn icon v-if="profile" href="/logout">
 				<v-icon class="material-icons">exit_to_app</v-icon>
 			</v-btn>
 		</v-app-bar>
 		<v-content>
-			<div v-if="!profile">
-				Необходимо авторизоваться через <a href="/login">Google</a>
-			</div>
-			<div v-else>
+			<v-container fluid v-if="!profile">
+					Необходимо авторизоваться через <a href="/login">Google</a>
+			</v-container>
+			<v-container fluid v-if="profile">
 				<messages-list :messages="messages"/>
-			</div>
+			</v-container>
 		</v-content>
 	</v-app>
 </template>
