@@ -1,13 +1,28 @@
+import Vue from 'vue';
+import Vuetify, {
+	VContent
+} from 'vuetify/lib';
+
 <template>
-	<div>
-		<div v-if="!profile">
-			Необходимо авторизоваться через <a href="/login">Google</a>
-		</div>
-		<div v-else>
-			<div>{{profile.name}}&nbsp;<a href="/logout">Выйти</a></div>
-			<messages-list :messages="messages"/>
-        </div>
-	</div>
+	<v-app id="app">
+		<v-app-bar
+		color="deep-purple accent-4"
+		dark
+		app>
+			<v-toolbar-title>Sarafan</v-toolbar-title>
+			<v-btn icon href="/logout">
+				<v-icon class="material-icons">exit_to_app</v-icon>
+			</v-btn>
+		</v-app-bar>
+		<v-content>
+			<div v-if="!profile">
+				Необходимо авторизоваться через <a href="/login">Google</a>
+			</div>
+			<div v-else>
+				<messages-list :messages="messages"/>
+			</div>
+		</v-content>
+	</v-app>
 </template>
 
 <script>
