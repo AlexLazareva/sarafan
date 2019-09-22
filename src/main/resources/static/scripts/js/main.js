@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import VueResorce from 'vue-resource';
 import Vuetify from 'vuetify';
+import 'api/resource';
 import 'vuetify/dist/vuetify.min.css';
 
 import App from 'pages/App.vue';
@@ -10,7 +10,6 @@ if(frontendData.profile) {
     connect();
 }
 
-Vue.use(VueResorce);
 Vue.use(Vuetify);
 
 new Vue({
