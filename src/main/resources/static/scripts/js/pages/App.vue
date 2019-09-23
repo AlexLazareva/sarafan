@@ -19,7 +19,7 @@ import Vuetify from 'vuetify/lib';
 					Необходимо авторизоваться через <a href="/login">Google</a>
 			</v-container>
 			<v-container fluid v-if="profile">
-				<messages-list :messages="messages"/>
+				<messages-list />
 			</v-container>
 		</v-content>
 	</v-app>
@@ -33,12 +33,7 @@ import { addHandler } from '../util/websocket'
 		components: {
 			MessagesList
 		},
-		data() {
-				return {
-				messages: frontendData.messages,
-				profile: frontendData.profile
-			}
-		},
+		computed: mapState(['profile']),
 		created() {
 			addHandler(data => {
 				if (data.objectType === 'MESSAGE') {

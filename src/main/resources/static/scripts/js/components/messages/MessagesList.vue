@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MessageRow from 'components/messages/MessageRow.vue'
 import MessageForm from 'components/messages/MessageForm.vue'
 import messagesApi from 'api/messages'
@@ -28,9 +29,7 @@ export default {
         }
     },
 	computed: {
-		sortedMessages() {
-			return this.messages.sort((a, b) => -(a.id - b.id));
-		}
+		...mapGetters(['sortedMessages'])
 	},
     methods: {
         editMessage(message) {

@@ -7,14 +7,17 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@babel/polyfill": "^7.6.0",
     "@mdi/font": "^4.3.95",
     "@stomp/stompjs": "^5.4.2",
+    "es6-promise": "^4.2.8",
     "roboto-fontface": "*",
     "sockjs-client": "^1.4.0",
     "vue": "^2.6.10",
     "vue-resource": "^1.5.1",
     "vue-template-compiler": "^2.6.10",
     "vuetify": "^2.0.15",
+    "vuex": "^3.1.1",
     "websocket": "^1.0.29"
   },
   "devDependencies": {
