@@ -14,8 +14,4 @@ public class WsEventDto {
     private EventType eventType;
     @JsonRawValue
     private String body;
-
-    public WsEventDto(ObjectType objectType, EventType eventType, String body) {
-
-    }
 }

@@ -1,12 +1,11 @@
 <template>
 	<v-layout align-space-around justify-start column>
-			<message-form :messages="messages" :messageAttr="message" />
+			<message-form :messageAttr="message" />
             <message-row v-for="message in sortedMessages" 
 						 :key="message.id" 
 						 :message="message"
 						 :editMessage="editMessage" 
-						 :deleteMessage="deleteMessage"
-						 :messages="messages" /> 
+						 :deleteMessage="deleteMessage" /> 
 	</v-layout>	
 </template>
 
@@ -18,7 +17,6 @@ import messagesApi from 'api/messages'
 
 export default {
 	name: "messages-list",
-	props: ['messages'],
 	components: {
 		MessageRow,
 		MessageForm
