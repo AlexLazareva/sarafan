@@ -6,6 +6,7 @@ import initcode.sarafan.domain.Views;
 import initcode.sarafan.dto.EventType;
 import initcode.sarafan.dto.ObjectType;
 import initcode.sarafan.repo.MessageRepo;
+import initcode.sarafan.util.WsSender;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class MessageController {
     private final BiConsumer<EventType, Message> wsSender;
 
     @Autowired
-    public MessageController(initcode.sarafan.repo.MessageRepo messageRepo, initcode.sarafan.util.WsSender wsSender) {
+    public MessageController(MessageRepo messageRepo, WsSender wsSender) {
         this.messageRepo = messageRepo;
         this.wsSender = wsSender.getSender(ObjectType.MESSAGE, Views.IdName.class);
     }
