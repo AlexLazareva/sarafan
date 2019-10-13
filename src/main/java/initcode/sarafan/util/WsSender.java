@@ -37,8 +37,8 @@ public class WsSender {
             }
 
             template.convertAndSend(
-                    "/topic/activity",
-                    new WsEventDto(objectType, eventType, value)
+                    "/topic/activity"
+                    //new WsEventDto(objectType, eventType, value)
             );
         };
     }

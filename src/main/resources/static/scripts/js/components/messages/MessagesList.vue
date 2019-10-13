@@ -4,8 +4,7 @@
             <message-row v-for="message in sortedMessages" 
 						 :key="message.id" 
 						 :message="message"
-						 :editMessage="editMessage" 
-						 :deleteMessage="deleteMessage" /> 
+						 :editMessage="editMessage" /> 
 	</v-layout>	
 </template>
 
