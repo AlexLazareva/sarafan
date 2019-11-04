@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+
 import '@babel/polyfill';
 import 'api/resource';
 import 'vuetify/dist/vuetify.min.css';
